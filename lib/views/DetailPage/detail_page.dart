@@ -19,13 +19,13 @@ class _DetailPageState extends State<DetailPage> {
         ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
     return Scaffold(
       appBar: AppBar(
-        title: Text('DetailPage'),
+        title: const Text('DetailPage'),
         actions: [
           IconButton(
             onPressed: () {
               Navigator.pushNamed(context, AppRoutes.mealPage);
             },
-            icon: Icon(
+            icon: const Icon(
               Icons.set_meal_rounded,
               size: 25,
             ),
@@ -34,7 +34,7 @@ class _DetailPageState extends State<DetailPage> {
             onPressed: () {
               Navigator.pushNamed(context, AppRoutes.favouritePage);
             },
-            icon: Icon(
+            icon: const Icon(
               Icons.favorite_rounded,
               color: Colors.red,
               size: 25,
@@ -46,8 +46,8 @@ class _DetailPageState extends State<DetailPage> {
       body: Column(
         children: [
           Container(
-            margin: EdgeInsets.all(16),
-            padding: EdgeInsets.all(10),
+            margin: const EdgeInsets.all(16),
+            padding: const EdgeInsets.all(10),
             height: size.height * 0.3,
             width: size.width * 0.9,
             decoration: BoxDecoration(
@@ -72,9 +72,10 @@ class _DetailPageState extends State<DetailPage> {
               ),
             ),
           ),
+          Spacer(),
           Container(
-            padding: EdgeInsets.all(45),
-            height: size.height * 0.5,
+            padding: const EdgeInsets.all(45),
+            height: size.height * 0.55,
             width: size.width,
             decoration: BoxDecoration(
                 borderRadius:
@@ -89,25 +90,19 @@ class _DetailPageState extends State<DetailPage> {
                 ]),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Row(
-                  children: [],
-                ),
-                Expanded(
-                  child: Text(
-                    '${recipe['name']}',
-                    style: const TextStyle(
-                      fontSize: 19,
-                      fontWeight: FontWeight.bold,
-                    ),
+                Text(
+                  '${recipe['name']}',
+                  style: const TextStyle(
+                    fontSize: 19,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
                 Row(
                   children: [
                     RatingBarIndicator(
                       rating: recipe['rating'],
-                      itemBuilder: (context, index) => Icon(
+                      itemBuilder: (context, index) => const Icon(
                         Icons.star,
                         color: Colors.amber,
                       ),
@@ -118,13 +113,13 @@ class _DetailPageState extends State<DetailPage> {
                     5.ofWidth,
                     Text(
                       '(${recipe['rating']})',
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.blue,
                       ),
-                    )
+                    ),
                   ],
                 ),
-                Divider(
+                const Divider(
                   thickness: 0.6,
                 ),
                 Expanded(
@@ -132,114 +127,284 @@ class _DetailPageState extends State<DetailPage> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          'Type',
+                        const Text(
+                          'Cooking Details',
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        Row(
-                          children: [
-                            Text(
-                              '${recipe['tags'][0]},',
-                              style: TextStyle(
-                                fontSize: 16,
-                                color: Colors.grey.shade700,
+                        RichText(
+                          text: TextSpan(
+                            children: [
+                              const TextSpan(
+                                text: 'Difficulty',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.black,
+                                ),
                               ),
-                            ),
-                            5.ofWidth,
-                            Text(
-                              '${recipe['tags'][1]}',
-                              style: TextStyle(
-                                fontSize: 16,
-                                color: Colors.grey.shade700,
+                              TextSpan(
+                                text: '\t\t${recipe['difficulty']}',
+                                style: const TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.blue,
+                                ),
                               ),
-                            ),
-                          ],
+                              const TextSpan(
+                                text: '\nCuisine',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.black,
+                                ),
+                              ),
+                              TextSpan(
+                                text: '\t\t\t\t${recipe['cuisine']}',
+                                style: const TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.blue,
+                                ),
+                              ),
+                              const TextSpan(
+                                text: '\nServings',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.black,
+                                ),
+                              ),
+                              TextSpan(
+                                text: '\t\t\t${recipe['servings']}',
+                                style: const TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.blue,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
+                        10.ofHeight,
+                        const Text(
+                          'Cooking Time',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        RichText(
+                          text: TextSpan(
+                            children: [
+                              const TextSpan(
+                                text: 'Prepare Time Minutes',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.black,
+                                ),
+                              ),
+                              TextSpan(
+                                text: '\t\t${recipe['prepTimeMinutes']}',
+                                style: const TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.blue,
+                                ),
+                              ),
+                              const TextSpan(
+                                text: '\nCook Time Minutes',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.black,
+                                ),
+                              ),
+                              TextSpan(
+                                text: '\t\t\t\t\t${recipe['cookTimeMinutes']}',
+                                style: const TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.blue,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        10.ofHeight,
+                        const Text(
+                          'Need',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        RichText(
+                          text: TextSpan(
+                            children: [
+                              const TextSpan(
+                                text: 'Ingredients',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              TextSpan(
+                                text: '\t\t\t${(recipe['ingredients']).length}',
+                                style: const TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.blue,
+                                ),
+                              ),
+                              const TextSpan(
+                                text: '\nInstruction',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.black,
+                                ),
+                              ),
+                              TextSpan(
+                                text:
+                                    '\t\t\t\t${(recipe['instructions']).length}',
+                                style: const TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.blue,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        10.ofHeight,
                         Text(
+                          'Type',
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        RichText(
+                          text: TextSpan(
+                            children: [
+                              TextSpan(
+                                text: '${recipe['tags'][0]},',
+                                style: const TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.blue,
+                                ),
+                              ),
+                              TextSpan(
+                                text: '\t\t\t\t\t${recipe['tags'][1]}',
+                                style: const TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.blue,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        10.ofHeight,
+                        const Text(
                           'MealType',
                           style: TextStyle(
                             fontSize: 16,
                           ),
                         ),
-                        Text(
-                          '${recipe['mealType'][0]}',
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: Colors.grey.shade700,
+                        RichText(
+                          text: TextSpan(
+                            children: [
+                              TextSpan(
+                                text: '${recipe['mealType'][0]}',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.blue,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
-                        Row(
-                          children: [
-                            Text(
-                              'Ingredients',
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            10.ofWidth,
-                            Text(
-                              '${(recipe['ingredients']).length}',
-                              style: TextStyle(
-                                fontSize: 16,
-                                color: Colors.blue,
-                              ),
-                            ),
-                          ],
+                        10.ofHeight,
+                        const Text(
+                          'Review ⭐',
+                          style: TextStyle(
+                            fontSize: 16,
+                          ),
                         ),
-                        Row(
-                          children: [
-                            Text(
-                              'Instruction',
-                              style: TextStyle(
-                                  fontSize: 16, fontWeight: FontWeight.bold),
-                            ),
-                            10.ofWidth,
-                            Text(
-                              '${(recipe['instructions']).length}',
-                              style: TextStyle(
-                                fontSize: 16,
-                                color: Colors.blue,
+                        RichText(
+                          text: TextSpan(
+                            children: [
+                              TextSpan(
+                                text: '${recipe['reviewCount']}',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.blue,
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ],
                     ),
                   ),
-                )
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ElevatedButton.icon(
+                      onPressed: () {
+                        Navigator.pushNamed(context, AppRoutes.recipePage,
+                            arguments: recipe);
+                      },
+                      icon: const Icon(Icons.play_arrow_rounded),
+                      label: const Text('Start'),
+                    ),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    ElevatedButton.icon(
+                      onPressed: () {
+                        meal.contains(recipe)
+                            ? meal.remove(recipe)
+                            : meal.add(recipe);
+                        setState(() {});
+                      },
+                      icon: Icon(
+                        Icons.set_meal_rounded,
+                        color: meal.contains(recipe)
+                            ? Colors.teal
+                            : Colors.grey.shade700,
+                      ),
+                      label: Text(
+                        'Add to Meal',
+                        style: TextStyle(
+                          color: meal.contains(recipe)
+                              ? Colors.teal
+                              : Colors.grey.shade700,
+                        ),
+                      ),
+                    ),
+                    ElevatedButton.icon(
+                      onPressed: () {
+                        favourite.contains(recipe)
+                            ? favourite.remove(recipe)
+                            : favourite.add(recipe);
+                        setState(() {});
+                      },
+                      icon: Icon(
+                        Icons.favorite_rounded,
+                        color: favourite.contains(recipe)
+                            ? Colors.red
+                            : Colors.grey.shade700,
+                      ),
+                      label: Text(
+                        'Add to Favourite',
+                        style: TextStyle(
+                          color: favourite.contains(recipe)
+                              ? Colors.red
+                              : Colors.grey.shade700,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ],
             ),
-          )
-        ],
-      ),
-      floatingActionButton: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          ElevatedButton.icon(
-            onPressed: () {
-              meal.add(recipe);
-            },
-            icon: Icon(Icons.set_meal_rounded),
-            label: Text('Add to Meal'),
-          ),
-          ElevatedButton.icon(
-            onPressed: () {
-              Navigator.pushNamed(context, AppRoutes.recipePage,
-                  arguments: recipe);
-            },
-            icon: Icon(Icons.play_arrow_rounded),
-            label: Text('Start'),
-          ),
-          ElevatedButton.icon(
-            onPressed: () {
-              favourite.add(recipe);
-            },
-            icon: Icon(Icons.favorite_rounded),
-            label: Text('Add to Favourite'),
           ),
         ],
       ),
