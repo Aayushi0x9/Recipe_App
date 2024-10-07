@@ -30,6 +30,10 @@ A beautiful and intuitive recipe app built with Flutter that allows users to exp
 - [`flutter_rating_bar`](https://pub.dev/packages/flutter_rating_bar) `^4.0.1`: A package to display rating bars for the recipes.
 - [`carousel_slider`](https://pub.dev/packages/carousel_slider) `^4.2.1`: To implement a carousel slider for the featured or popular recipes.
 
+## License
+
+- This project is licensed under the MIT License - see the LICENSE file for details.
+  
 # Screenshots
 
  <img src="https://github.com/user-attachments/assets/6c571cb0-19e2-49f7-abd7-98d4f1b39b83" width="250" height="550">
