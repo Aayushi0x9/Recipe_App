@@ -1,4 +1,34 @@
-# recipe_app
+# Recipe App 🍽️
+
+A beautiful and intuitive recipe app built with Flutter that allows users to explore, filter, and save their favorite recipes. The app features clean UI/UX, smooth navigation, and several advanced functionalities such as rating, filtering, and favoriting recipes.
+
+## Features
+
+- **View Recipes**: Browse all recipes with images, ratings, cooking time, and recipe types (e.g., Breakfast, Lunch, Dinner).
+- **Recipe Details**: Click on any recipe to see detailed information like ingredients, instructions, and preparation/cooking time.
+- **Filtering**: Filter recipes based on:
+  - Cooking time duration.
+  - Type of meal (e.g., vegetarian, non-vegetarian).
+  - Time of day (e.g., Morning, Evening, etc.).
+- **Popular Recipes**: See popular recipes displayed at the top of the recipe list.
+- **Favorite Recipes**: Users can favorite/unfavorite recipes. Favorite recipes are shown in a separate page for easy access.
+- **Add to Meal**: Save recipes as part of a meal plan.
+- **Snackbars for Actions**: Users receive feedback with snackbars when adding or removing recipes from favorites or meals.
+- **Smooth Navigation**: Clean and smooth transitions between pages with Flutter's navigation system.
+- **Beautiful UI/UX**: Carefully designed UI with a clean and modern look for an enjoyable user experience.
+
+## Screens
+
+- **Home Page**: Shows a list of all recipes with filtering options.
+- **Start Recipes Page**: Highlights the most popular recipes.
+- **Favorites Page**: Displays all the user's favorite recipes.
+- **Recipe Detail Page**: Displays detailed information about the recipe.
+- **Meal Plan Page**: Shows recipes saved in the user's meal plan.
+
+## Packages Used
+
+- [`flutter_rating_bar`](https://pub.dev/packages/flutter_rating_bar) `^4.0.1`: A package to display rating bars for the recipes.
+- [`carousel_slider`](https://pub.dev/packages/carousel_slider) `^4.2.1`: To implement a carousel slider for the featured or popular recipes.
 
 # Screenshots
 
